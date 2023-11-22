@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\PostsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,7 +15,10 @@ use App\Http\Controllers\PhotoController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //dd("Reached the root route");
+   return view('layout');
 });
 
-Route::get('/random-photo', [PhotoController::class, 'redirectToRandomPhoto']);
+Route::get('/posts/{post}', [PostsController::class, 'show']);
+
+//Route::get('/random-photo', [PhotoController::class, 'redirectToRandomPhoto']);
