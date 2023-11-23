@@ -70,10 +70,47 @@
             padding: 10px;
             margin-bottom: 10px;
         }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            background-color: #111;
+        }
+
     </style>
 </head>
 <body>
-    @yield('content')
-    @yield('post')
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ route('content') }}">Home</a></li>
+                <li><a href="{{ route('about') }}">About</a></li>
+                <li><a href="{{ route('post.show', ['post' => $post->post ?? '']) }}">Show Post</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    @yield('content', View::make('content'))
+    @yield('post',  View::make('post'))
+    @yield('about',  View::make('about'))
 </body>
+
 </html>

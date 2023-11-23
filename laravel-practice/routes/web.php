@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ContentController;
+use App\Http\Controllers\AboutController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,10 +15,11 @@ use App\Http\Controllers\ContentController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/post/{slug}', [PostsController::class, 'show'])->name('post.show');
 Route::get('/', [ContentController::class, 'content'])->name('content.index');
 // Route::get('/post/{id}', [PostsController::class, 'show'])->name('post.show');
-Route::get('/posts/{slug}', [PostsController::class, 'show'])->name('posts.show');
+Route::get('/content', [ContentController::class, 'content'])->name('content');
+Route::get('/about', [AboutController::class, 'about'])->name('about');
 
 // Route::view('/', 'layouts.app');
 
