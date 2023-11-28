@@ -1,7 +1,6 @@
-
 @extends('layout')
 
-@section('content')
+@section('random-photo')
 
 <h1>Random Unsplash Photo</h1>
 <button id="loadPhoto">Load Random Photo</button>
